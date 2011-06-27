@@ -1,0 +1,41 @@
+Source: liblsf-perl
+Section: perl
+Priority: optional
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: perl, libipc-run-perl (>= 0.66),
+  libdate-manip-perl (>= 5.4)
+Maintainer: Randy Hancock <rhancock@>
+Standards-Version: 3.8.3
+Homepage: http://search.cpan.org/dist/LSF/
+
+Package: liblsf-perl
+Architecture: all
+Depends: ${perl:Depends}, ${misc:Depends}, libipc-run-perl (>= 0.66),
+  libdate-manip-perl (>= 5.4)
+Description: A perl API built on top of the LSF command line tools
+ NOTE: FOR THESE MODULES TO WORK IT IS ESSENTIAL THAT YOU INCLUDE THE LSF
+ COMMAND LINES IN YOUR PATH.
+ .
+ This is the base class of the LSF suite of modules. 'use LSF' will also
+ preload all of the LSF modules at one time. Currently this includes:
+ .
+ LSF::Job
+ .
+ LSF::JobHistory
+ .
+ LSF::JobGroup
+ .
+ LSF::Queue
+ .
+ LSF::JobManager
+ .
+ Two error reporting strategies are available and can be set globally via the
+ 'use LSF' statement or individually in each of the LSF modules. By setting
+ the 'RaiseError' directive to true, or by using the RaiseError class method,
+ the LSF modules will die on error, otherwise they will return false, setting
+ $? to the exit value and $@ to the stderr of the LSF command line.
+ Additionally the printing of LSF command line stdout and stderr can be
+ controlled via the 'PrintOutput' and 'PrintError' directives or class methods
+ of the same names. Defaults are as above.
+ .
+ This description was automagically extracted from the module by dh-make-perl.
